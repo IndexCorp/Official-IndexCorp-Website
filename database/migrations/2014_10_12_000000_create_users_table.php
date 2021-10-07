@@ -18,10 +18,16 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('phone')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->foreignId('current_team_id')->nullable();
+            // $table->foreignId('current_team_id')->nullable();
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
+            $table->string('fb_id')->nullable();
+            $table->string('twit_id')->nullable();
+            $table->string('ig_id')->nullable();
+            $table->string('in_id')->nullable();
             $table->timestamps();
         });
     }

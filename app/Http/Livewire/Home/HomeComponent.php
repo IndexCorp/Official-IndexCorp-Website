@@ -8,6 +8,9 @@ class HomeComponent extends Component
 {
     public function render()
     {
-        return view('livewire.home.home-component');
+        $data = [
+            'page'  =>  'home'
+        ];
+        return view('livewire.home.home-component')->layout('layouts.base', compact('data'));
     }
 }
